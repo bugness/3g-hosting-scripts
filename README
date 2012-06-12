@@ -1,0 +1,37 @@
+---- Переменные
+<user>   - Имя пользователья в системе (например example)
+<domain> - Домен сайта без www (например example.com)
+<dbname> - Название БД
+
+---- Константы
+work_dir    - Каталог для сайтов (по умолчания /home)
+backup_dir  - Каталог для бекапов (по умолчанию /root/backup)
+scripts_dir - Каталог со скриптами (по умолчанию /root/scripts)
+
+---- Временные файлы
+<backup_dir>/<user>.access    - Учётные данные пользователя
+<backup_dir>/<user>.vhosts    - Виртуальные хосты пользователя
+<backup_dir>/<user>.bases     - Базы пользователя
+<backup_dir>/last_port.txt    - Последний используемый порт для php-fpm
+
+
+---- Пример использования
+
+-- Добавление пользователя в систему
+-- Создание домашней папки
+./user.sh create <user>
+-- Удаление пользователя из системы
+./user.sh delete <user>
+
+-- Создание виртуального хоста
+./vhost.sh create <user> <domain>
+-- Удаление виртуального хоста
+./vhost.sh delete <user> <domain>
+
+-- Создания пользователя в БД
+./db.sh create <user> <dbname>
+-- Бекап пользовательской БД
+./db.sh backup <user> <dbname>
+-- Удаление пользователя БД (вместе с базой)
+./db.sh delete <user> <dbname>
+
